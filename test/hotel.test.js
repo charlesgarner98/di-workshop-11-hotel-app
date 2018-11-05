@@ -20,6 +20,11 @@ describe('Hotel', function() {
 
       expect(hotel.urlSlug()).to.equal('hilton_metropole_london')
     })
+    it('should handle cities with multiple words', function(){
+      let hotel = new Hotel("Hilton Metropole", "San Francisco")
+
+      expect(hotel.urlSlug()).to.equal('hilton_metropole_san_francisco')
+    })
   })
   describe('#addReview', function(){
     it('should add review to reviews array', function(){
@@ -41,7 +46,7 @@ describe('Hotel', function() {
   describe('#rating', function(){
     it('should return the average rating', function(){
       let hotel = new Hotel("Hilton Metropole", "London")
-      expect(hotel.reviewCount()).to.equal(0)
+      expect(hotel.rating()).to.equal(0)
       let review1 = new Review(5, "Excellent hotel, very clean", "2018-12-17")
       let review2 = new Review(1, "Terrible hotel, smelled of mice", "2018-01-01")
       hotel.addReview(review1)

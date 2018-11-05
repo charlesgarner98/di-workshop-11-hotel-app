@@ -6,7 +6,7 @@ class Hotel {
   }
   urlSlug() {
     var formattedName = this.name.toLowerCase().replace(' ', '_')
-    var formattedLocation = this.city.toLowerCase()
+    var formattedLocation = this.city.toLowerCase().replace(' ', '_')
     return formattedName + '_' + formattedLocation
   }
   reviewCount() {
@@ -16,11 +16,15 @@ class Hotel {
     this.reviews.push(review)
   }
   rating() {
-    let ratingsTotal = 0
-    for(var review of this.reviews) {
-      ratingsTotal += review.rating
+    if(this.reviews.length == 0) {
+      return 0
+    } else {
+      let ratingsTotal = 0
+      for(var review of this.reviews) {
+        ratingsTotal += review.rating
+      }
+      return ratingsTotal / this.reviewCount()
     }
-    return ratingsTotal / this.reviewCount()
   }
   ratingAsStars() {
     let ratingAsStarsString = ''

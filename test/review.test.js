@@ -20,4 +20,10 @@ describe('Review', function(){
       expect(review.ratingAsStars()).to.equal("⭐️⭐️⭐️⭐️⭐️")
     })
   })
+  describe('#toJSON', function(){
+    it('should return a JSON string', function(){
+      let review = new Review(5, "Excellent hotel, very clean", "2018-12-17")
+      expect(JSON.stringify(review, null, 2)).to.equal('{\n  "rating": 5,\n  "text": "Excellent hotel, very clean",\n  "date": "2018-12-17T00:00:00.000Z",\n  "ratingAsStars": "⭐️⭐️⭐️⭐️⭐️"\n}')
+    })
+  })
 })

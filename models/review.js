@@ -11,6 +11,14 @@ class Review {
     }
     return ratingAsStarsString
   }
+  toJSON(){
+    return {
+      rating: this.rating,
+      text: this.text,
+      date: this.date,
+      ratingAsStars: this.ratingAsStars(),
+    }
+  }
 }
 
 module.exports = Review
