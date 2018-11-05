@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Hotel = require('../models/hotel')
+const Review = require('../models/review')
 
 describe('Hotel', function() {
   describe('#constructor', function(){
