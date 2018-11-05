@@ -10,7 +10,7 @@ describe('Review', function(){
 
       expect(review.rating).to.equal(5)
       expect(review.text).to.equal("Excellent hotel, very clean")
-      expect(review.date).to.equal("2018-12-17")
+      expect(review.date).to.equal('2018-12-17T00:00:00.000Z')
     })
   })
   describe('#ratingAsStars', function(){
