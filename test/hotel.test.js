@@ -14,6 +14,13 @@ describe('Hotel', function() {
       expect(hotel.reviews).to.deep.equal([])
     })
   })
+  describe('urlSlug', function(){
+    it('should return url', function (){
+      let hotel = new Hotel("Hilton Metropole", "London")
+
+      expect(hotel.urlSlug()).to.equal('hilton_metropole_london')
+    })
+  })
   describe('#addReview', function(){
     it('should add review to reviews array', function(){
       let hotel = new Hotel("Hilton Metropole", "London")

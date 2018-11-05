@@ -4,6 +4,11 @@ class Hotel {
     this.city = location
     this.reviews = []
   }
+  urlSlug() {
+    var formattedName = this.name.toLowerCase().replace(' ', '_')
+    var formattedLocation = this.city.toLowerCase()
+    return formattedName + '_' + formattedLocation
+  }
   reviewCount() {
     return this.reviews.length
   }
