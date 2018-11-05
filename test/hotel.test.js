@@ -38,4 +38,28 @@ describe('Hotel', function() {
       expect(hotel.reviewCount()).to.equal(1)
     })
   })
+  describe('#rating', function(){
+    it('should return the average rating', function(){
+      let hotel = new Hotel("Hilton Metropole", "London")
+      expect(hotel.reviewCount()).to.equal(0)
+      let review1 = new Review(5, "Excellent hotel, very clean", "2018-12-17")
+      let review2 = new Review(1, "Terrible hotel, smelled of mice", "2018-01-01")
+      hotel.addReview(review1)
+      hotel.addReview(review2)
+
+      expect(hotel.rating()).to.equal(3)
+    })
+  })
+  describe('#ratingAsStars', function(){
+    it('should return the average rating as stars', function(){
+      let hotel = new Hotel("Hilton Metropole", "London")
+      expect(hotel.reviewCount()).to.equal(0)
+      let review1 = new Review(5, "Excellent hotel, very clean", "2018-12-17")
+      let review2 = new Review(1, "Terrible hotel, smelled of mice", "2018-01-01")
+      hotel.addReview(review1)
+      hotel.addReview(review2)
+
+      expect(hotel.ratingAsStars()).to.equal('⭐️⭐️⭐️')
+    })
+  })
 })

@@ -17,7 +17,7 @@ describe('Review', function(){
     it('should display the rating in stars', function(){
       let review = new Review(5, "Excellent hotel, very clean", "2018-12-17")
 
-      expect(review.ratingAsStars()).to.equal("*****")
+      expect(review.ratingAsStars()).to.equal("⭐️⭐️⭐️⭐️⭐️")
     })
   })
 })

@@ -15,5 +15,19 @@ class Hotel {
   addReview(review) {
     this.reviews.push(review)
   }
+  rating() {
+    let ratingsTotal = 0
+    for(var review of this.reviews) {
+      ratingsTotal += review.rating
+    }
+    return ratingsTotal / this.reviewCount()
+  }
+  ratingAsStars() {
+    let ratingAsStarsString = ''
+    for(let i=0; i<this.rating(); i++) {
+      ratingAsStarsString += '⭐️'
+    }
+    return ratingAsStarsString
+  }
 }
 module.exports = Hotel

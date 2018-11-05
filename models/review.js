@@ -7,7 +7,7 @@ class Review {
   ratingAsStars(){
     var ratingAsStarsString = ''
     for(let i=0; i < this.rating; i++) {
-      ratingAsStarsString += '*'
+      ratingAsStarsString += '⭐️'
     }
     return ratingAsStarsString
   }
