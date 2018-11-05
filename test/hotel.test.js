@@ -14,10 +14,21 @@ describe('Hotel', function() {
       expect(hotel.reviews).to.deep.equal([])
     })
   })
+  describe('#addReview', function(){
+    it('should add review to reviews array', function(){
+      let hotel = new Hotel("Hilton Metropole", "London")
+      let review = new Review(5, "Excellent hotel, very clean", "2018-12-17")
+      hotel.addReview(review)
+      expect(hotel.reviews).to.deep.equal([review])
+    })
+  })
   describe('#reviewCount',function(){
     it('should return the number of reviews', function(){
       let hotel = new Hotel("Hilton Metropole", "London")
       expect(hotel.reviewCount()).to.equal(0)
+      let review = new Review(5, "Excellent hotel, very clean", "2018-12-17")
+      hotel.addReview(review)
+      expect(hotel.reviewCount()).to.equal(1)
     })
   })
-});
+})

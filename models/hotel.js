@@ -7,5 +7,8 @@ class Hotel {
   reviewCount() {
     return this.reviews.length
   }
+  addReview(review) {
+    this.reviews.push(review)
+  }
 }
 module.exports = Hotel
