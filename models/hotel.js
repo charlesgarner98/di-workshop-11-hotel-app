@@ -33,5 +33,20 @@ class Hotel {
     }
     return ratingAsStarsString
   }
+  toJSON() {
+    var reviewsArray = []
+    for (var review of this.reviews) {
+      reviewsArray.push(JSON.stringify(review, null, 2))
+    }
+    return {
+      name: this.name,
+      city: this.city,
+      reviewCount: this.reviewCount(),
+      rating: this.rating(),
+      ratingAsStars: this.ratingAsStars(),
+      urlSlug: this.urlSlug(),
+      reviews: this.reviews
+    }
+  }
 }
 module.exports = Hotel

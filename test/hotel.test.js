@@ -58,7 +58,6 @@ describe('Hotel', function() {
   describe('#ratingAsStars', function(){
     it('should return the average rating as stars', function(){
       let hotel = new Hotel("Hilton Metropole", "London")
-      expect(hotel.reviewCount()).to.equal(0)
       let review1 = new Review(5, "Excellent hotel, very clean", "2018-12-17")
       let review2 = new Review(1, "Terrible hotel, smelled of mice", "2018-01-01")
       hotel.addReview(review1)
@@ -66,5 +65,16 @@ describe('Hotel', function() {
 
       expect(hotel.ratingAsStars()).to.equal('⭐️⭐️⭐️')
     })
+  })
+  describe('#toJSON', function(){
+    let hotel = new Hotel("Hilton Metropole", "London")
+    let review1 = new Review(5, "Excellent hotel, very clean", "2018-12-17")
+    let review2 = new Review(1, "Terrible hotel, smelled of mice", "2018-01-01")
+    hotel.addReview(review1)
+    hotel.addReview(review2)
+
+    expect(JSON.stringify(hotel, null, 2)).to.equal('{\n  "name": "Hilton Metropole",\n  "city": "London",\n  "reviewCount": 2,\n  "rating": 3,\n  "ratingAsStars": "⭐️⭐️⭐️",\n  "urlSlug": "hilton_metropole_london",\n  "reviews": [\n    {\n      "rating": 5,\n      "text":
+ "Excellent hotel, very clean",\n      "date": "2018-12-17T00:00:00.000Z",\n      "ratingAsStars": "⭐️⭐️⭐️⭐️⭐️"\n    },\n    {\n      "rating": 1,\n      "text": "Terrible hotel, smelled of mice",\n      "date": "2018-01
+-01T00:00:00.000Z",\n      "ratingAsStars": "⭐️"\n    }\n  ]\n}')
   })
 })
