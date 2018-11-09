@@ -1,14 +1,15 @@
 class HotelCollection {
   constructor() {
     this.hotels = []
-    Object.freeze(this)
   }
   addHotel(hotel) {
     this.hotels.push(hotel)
   }
   sortedHotels() {
-    //// TODO: Write test for this (expect([1, 2]).to.have.ordered.members([1, 2]))
-    //// TODO: Implement this
+    var sortedHotels = this.hotels.sort((a, b) => {
+      return b.rating() - a.rating()
+    })
+    return sortedHotels
   }
   writeToFile(path) {
     //// TODO: Write test for this (load file back in and make sure it has all the info)

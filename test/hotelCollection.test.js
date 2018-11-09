@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Hotel = require('../models/hotel')
+const Review = require('../models/review')
 const HotelCollection = require('../models/hotelCollection')
 
 describe('Hotel Collections', function() {
@@ -28,21 +29,29 @@ describe('Hotel Collections', function() {
       expect(c.hotels).to.deep.equal([hotel, hotel2])
     })
   })
-  describe('Protection for overwriting', function() {
-    it('Should not overwrite the existing array', function() {
-      let c = new HotelCollection()
-      c.hotels = ['overwriting']
-      expect(c.hotels).to.deep.equal([])
-      let hotel = new Hotel("Hilton Metropole", "San Francisco")
-      c.addHotel(hotel)
-      c.hotels = ['overwriting']
-      expect(c.hotels).to.deep.equal([hotel])
-    })
-  })
   describe('sortedHotels', function(){
     it('should return hotels in descending order of rating', function(){
-      //// TODO: Write test for this
-      //// TODO: Implement this
+      let hotel1 = new Hotel("Hilton Metropole", "San Francisco")
+      let hotel2 = new Hotel("The Green Rooms", "Wood Green")
+      let hotel3 = new Hotel("Marriot", "Paris")
+
+      let review1 = new Review(1,"Bad Hotel","2018-01-01")
+      let review3 = new Review(3,"Good Hotel","2018-01-01")
+      let review5 = new Review(5,"Great Hotel","2018-01-01")
+
+      hotel1.addReview(review1)
+      hotel2.addReview(review3)
+      hotel3.addReview(review5)
+
+      let c = new HotelCollection()
+      c.addHotel(hotel1)
+      c.addHotel(hotel2)
+      c.addHotel(hotel3)
+
+      var sorted = c.sortedHotels()
+      expect(sorted[0].name).to.equal('Marriot')
+      expect(sorted[1].name).to.equal('The Green Rooms')
+      expect(sorted[2].name).to.equal('Hilton Metropole')
     })
   })
 })
