@@ -73,8 +73,6 @@ describe('Hotel', function() {
     hotel.addReview(review1)
     hotel.addReview(review2)
 
-    expect(JSON.stringify(hotel, null, 2)).to.equal('{\n  "name": "Hilton Metropole",\n  "city": "London",\n  "reviewCount": 2,\n  "rating": 3,\n  "ratingAsStars": "⭐️⭐️⭐️",\n  "urlSlug": "hilton_metropole_london",\n  "reviews": [\n    {\n      "rating": 5,\n      "text":
- "Excellent hotel, very clean",\n      "date": "2018-12-17T00:00:00.000Z",\n      "ratingAsStars": "⭐️⭐️⭐️⭐️⭐️"\n    },\n    {\n      "rating": 1,\n      "text": "Terrible hotel, smelled of mice",\n      "date": "2018-01
--01T00:00:00.000Z",\n      "ratingAsStars": "⭐️"\n    }\n  ]\n}')
+    expect(JSON.stringify(hotel, null, 2)).to.equal('{\n  "name": "Hilton Metropole",\n  "city": "London",\n  "reviewCount": 2,\n  "rating": 3,\n  "ratingAsStars": "⭐️⭐️⭐️",\n  "urlSlug": "hilton_metropole_london",\n  "reviews": [\n    {\n      "rating": 5,\n      "text": "Excellent hotel, very clean",\n      "date": "2018-12-17T00:00:00.000Z",\n      "ratingAsStars": "⭐️⭐️⭐️⭐️⭐️"\n    },\n    {\n      "rating": 1,\n      "text": "Terrible hotel, smelled of mice",\n      "date": "2018-01-01T00:00:00.000Z",\n      "ratingAsStars": "⭐️"\n    }\n  ]\n}')
   })
 })
