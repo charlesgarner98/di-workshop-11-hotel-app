@@ -1,8 +1,8 @@
 {
-  "name": "HotelsAPI",
+  "name": "hotelsapi",
   "version": "1.0.0",
   "description": "This exercise is designed to test your TDD and OOP skills, and also to introduce you to some new concepts and techniques. It should also help to consolidate your command line and git skills, too. If you've completed the **Person and AddressBook Workshop**, you'll see some similarities. We'll give you a little less guidance in this workshop than we have on previous ones.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "mocha"
   },
@@ -17,7 +17,15 @@
   },
   "homepage": "https://github.com/charlesgarner98/di-workshop-11-hotel-app#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
-  }
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "morgan": "^1.9.1",
+    "supertest": "^3.3.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
 }
